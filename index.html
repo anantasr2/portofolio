@@ -1191,8 +1191,7 @@
                                         Machine Learning <span class="text-white/20 mx-3 select-none">|</span> 
                                         Deep Learning <span class="text-white/20 mx-3 select-none">|</span> 
                                         Computer Vision <span class="text-white/20 mx-3 select-none">|</span> 
-                                        Natural Language Processing <span class="text-white/20 mx-3 select-none">|</span>
-                                        Explainable AI (XAI)
+                                        Natural Language Processing <span class="text-white/20 mx-3 select-none"></span>
                                     </p>
                                 </div>
                             </div>
@@ -1653,20 +1652,7 @@
             <div class="text-secondary-fixed-dim text-xs tracking-wide">
                 2026 @ Ananta Surya Pratama
             </div>
-            <div class="flex gap-4">
-                <a href="#top" class="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-secondary-fixed-dim hover:text-white hover:border-white/40 transition-colors" title="Home">
-                    <span class="material-symbols-outlined text-sm">home</span>
-                </a>
-                <a href="#about" class="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-secondary-fixed-dim hover:text-white hover:border-white/40 transition-colors" title="About">
-                    <span class="material-symbols-outlined text-sm">person</span>
-                </a>
-                <a href="#projects" class="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-secondary-fixed-dim hover:text-white hover:border-white/40 transition-colors" title="Projects">
-                    <span class="material-symbols-outlined text-sm">work</span>
-                </a>
-                <a href="#contact" class="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-secondary-fixed-dim hover:text-white hover:border-white/40 transition-colors" title="Contact">
-                    <span class="material-symbols-outlined text-sm">mail</span>
-                </a>
-            </div>
+            
             <div class="text-secondary-fixed-dim text-xs tracking-wide">
                 What’s Next? Let’s Find Out.
             </div>
@@ -1684,6 +1670,42 @@
             </div>
         </div>
     </div>
+
+    <!-- Floating Bottom Navbar Dock -->
+    <nav class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 transition-all duration-300" id="bottom-dock">
+        <div class="flex items-center gap-1.5 md:gap-2 bg-[#141414]/90 backdrop-blur-xl border border-white/15 px-3 py-2 rounded-full shadow-2xl shadow-black/60">
+            <!-- 1. Home -->
+            <a href="#top" class="dock-item group relative w-11 h-11 rounded-full flex items-center justify-center text-white/70 hover:text-white hover:bg-white/10 active:scale-95 transition-all duration-200" data-section="top">
+                <span class="material-symbols-outlined text-xl">home</span>
+                <span class="dock-tooltip">Home</span>
+            </a>
+            <!-- 2. About -->
+            <a href="#about" class="dock-item group relative w-11 h-11 rounded-full flex items-center justify-center text-white/70 hover:text-white hover:bg-white/10 active:scale-95 transition-all duration-200" data-section="about">
+                <span class="material-symbols-outlined text-xl">person</span>
+                <span class="dock-tooltip">About</span>
+            </a>
+            <!-- 3. Experience -->
+            <a href="#experience" class="dock-item group relative w-11 h-11 rounded-full flex items-center justify-center text-white/70 hover:text-white hover:bg-white/10 active:scale-95 transition-all duration-200" data-section="experience">
+                <span class="material-symbols-outlined text-xl">work</span>
+                <span class="dock-tooltip">Experience</span>
+            </a>
+            <!-- 4. Projects -->
+            <a href="#projects" class="dock-item group relative w-11 h-11 rounded-full flex items-center justify-center text-white/70 hover:text-white hover:bg-white/10 active:scale-95 transition-all duration-200" data-section="projects">
+                <span class="material-symbols-outlined text-xl">folder_special</span>
+                <span class="dock-tooltip">Projects</span>
+            </a>
+            <!-- 5. Skills & Certifications -->
+            <a href="#skills" class="dock-item group relative w-11 h-11 rounded-full flex items-center justify-center text-white/70 hover:text-white hover:bg-white/10 active:scale-95 transition-all duration-200" data-section="skills">
+                <span class="material-symbols-outlined text-xl">menu_book</span>
+                <span class="dock-tooltip">Skills &amp; Certs</span>
+            </a>
+            <!-- 6. Contact -->
+            <a href="#contact" class="dock-item group relative w-11 h-11 rounded-full flex items-center justify-center text-white/70 hover:text-white hover:bg-white/10 active:scale-95 transition-all duration-200" data-section="contact">
+                <span class="material-symbols-outlined text-xl">mail</span>
+                <span class="dock-tooltip">Contact</span>
+            </a>
+        </div>
+    </nav>
 
     <!-- External JavaScript Separated -->
     <script src="js/script.js"></script>

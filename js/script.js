@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initRoleTypewriter();
     initExperienceHorizontalScroll();
     initProjectsFastSnap();
+    initBottomDockNavigation();
 });
 
 /* ==========================================================================
@@ -472,4 +473,49 @@ document.addEventListener('click', (e) => {
         closeModal();
     }
 });
+
+/* ==========================================================================
+   6. FLOATING BOTTOM DOCK NAVIGATION & SCROLLSPY
+   ========================================================================== */
+function initBottomDockNavigation() {
+    const dockItems = document.querySelectorAll('.dock-item');
+    if (!dockItems.length) return;
+
+    const sections = [
+        { id: 'top', elem: document.getElementById('top') },
+        { id: 'about', elem: document.getElementById('about') },
+        { id: 'experience', elem: document.getElementById('experience') },
+        { id: 'projects', elem: document.getElementById('projects') },
+        { id: 'skills', elem: document.getElementById('skills') },
+        { id: 'certifications', elem: document.getElementById('certifications') },
+        { id: 'contact', elem: document.getElementById('contact') }
+    ];
+
+    function updateActiveDock() {
+        const scrollPos = window.scrollY + window.innerHeight / 3;
+
+        let currentSectionId = 'top';
+        for (const sec of sections) {
+            if (sec.elem) {
+                const top = sec.elem.offsetTop;
+                const height = sec.elem.offsetHeight;
+                if (scrollPos >= top && scrollPos < top + height) {
+                    currentSectionId = sec.id;
+                }
+            }
+        }
+
+        dockItems.forEach(item => {
+            const itemSec = item.getAttribute('data-section');
+            if (itemSec === currentSectionId || (currentSectionId === 'certifications' && itemSec === 'skills')) {
+                item.classList.add('active-dock');
+            } else {
+                item.classList.remove('active-dock');
+            }
+        });
+    }
+
+    window.addEventListener('scroll', updateActiveDock, { passive: true });
+    updateActiveDock();
+}
 
