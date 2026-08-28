@@ -174,12 +174,21 @@ function initProjectsFastSnap() {
         return getActiveIndex() !== -1;
     }
 
-    function snapTo(idx) {
+    function snapTo(idx, direction = 'next') {
         if (isSnapping) return;
         isSnapping = true;
         clearTimeout(snapTimeout);
+
+        // Trigger subtle page-turn animation on the target slide border box
+        const slideBorder = projectCards[idx].querySelector('.project-slide-border');
+        if (slideBorder) {
+            slideBorder.classList.remove('animate-page-turn-next', 'animate-page-turn-prev');
+            void slideBorder.offsetWidth; // Force reflow
+            slideBorder.classList.add(direction === 'next' ? 'animate-page-turn-next' : 'animate-page-turn-prev');
+        }
+
         projectCards[idx].scrollIntoView({ behavior: 'smooth', block: 'start' });
-        snapTimeout = setTimeout(() => { isSnapping = false; }, 800);
+        snapTimeout = setTimeout(() => { isSnapping = false; }, 600);
     }
 
     /* ---- Wheel (desktop) ---- */
@@ -189,23 +198,31 @@ function initProjectsFastSnap() {
         const activeIdx = getActiveIndex();
         if (activeIdx === -1) return;
 
+        const activeCard = projectCards[activeIdx];
+        const cardTop = activeCard.getBoundingClientRect().top;
+        const isAligned = Math.abs(cardTop) < 100;
+
         const scrollingDown = e.deltaY > 0;
         const scrollingUp   = e.deltaY < 0;
 
         if (scrollingDown) {
+            // Allow user to scroll into project 1 naturally before snap engages
+            if (activeIdx === 0 && !isAligned && cardTop > 0) {
+                return;
+            }
             if (activeIdx < projectCards.length - 1) {
-                // There is a next project — snap to it
                 e.preventDefault();
-                snapTo(activeIdx + 1);
+                snapTo(activeIdx + 1, 'next');
             }
-            // else: last project, allow normal scroll to next section
         } else if (scrollingUp) {
-            if (activeIdx > 0) {
-                // There is a previous project — snap to it
-                e.preventDefault();
-                snapTo(activeIdx - 1);
+            // Allow user to scroll into project 7 naturally from below before snap engages
+            if (activeIdx === projectCards.length - 1 && !isAligned && cardTop < 0) {
+                return;
             }
-            // else: first project, allow normal scroll to previous section
+            if (activeIdx > 0) {
+                e.preventDefault();
+                snapTo(activeIdx - 1, 'prev');
+            }
         }
     }, { passive: false });
 
@@ -227,15 +244,26 @@ function initProjectsFastSnap() {
         const activeIdx = getActiveIndex();
         if (activeIdx === -1) return;
 
-        if (deltaY > 0 && activeIdx < projectCards.length - 1) {
-            touchHandled = true;
-            snapTo(activeIdx + 1);
-        } else if (deltaY < 0 && activeIdx > 0) {
-            touchHandled = true;
-            snapTo(activeIdx - 1);
+        const activeCard = projectCards[activeIdx];
+        const cardTop = activeCard.getBoundingClientRect().top;
+        const isAligned = Math.abs(cardTop) < 100;
+
+        if (deltaY > 0) {
+            if (activeIdx === 0 && !isAligned && cardTop > 0) return;
+            if (activeIdx < projectCards.length - 1) {
+                touchHandled = true;
+                snapTo(activeIdx + 1, 'next');
+            }
+        } else if (deltaY < 0) {
+            if (activeIdx === projectCards.length - 1 && !isAligned && cardTop < 0) return;
+            if (activeIdx > 0) {
+                touchHandled = true;
+                snapTo(activeIdx - 1, 'prev');
+            }
         }
     }, { passive: true });
 }
+
 
 /* ==========================================================================
    4. CERTIFICATIONS 21 CARDS TOGGLE
@@ -281,6 +309,8 @@ const projectData = {
         title: "LightRetina-XAI / TilikMata",
         subtitle: "Explainable AI (XAI) Framework for Medical Diagnostic Imaging",
         tech: ["Python", "PyTorch", "Grad-CAM", "XAI", "FastAPI", "React"],
+        github: "https://github.com/anantasr",
+        demo: "https://github.com/anantasr",
         description: "LightRetina-XAI provides transparent, interpretable deep learning models tailored for retinal fundus photography analysis. Built with Grad-CAM saliency mapping and decision confidence scoring to enable trusted AI-assisted clinical diagnosis.",
         highlights: [
             "Achieved 96.4% diagnostic accuracy across multi-class retinal condition datasets.",
@@ -292,6 +322,8 @@ const projectData = {
         title: "Jordan Citra Niaga",
         subtitle: "Enterprise Data Integration & Inventory Analytics System",
         tech: ["SQL", "ETL", "Python", "Dashboard", "PostgreSQL", "Tailwind CSS"],
+        github: "https://github.com/anantasr",
+        demo: "https://github.com/anantasr",
         description: "An end-to-end data pipeline and intelligence portal consolidating multi-branch supply chain records, inventory movements, and automated daily reconciliations.",
         highlights: [
             "Automated 100% daily transaction and inventory reconciliation.",
@@ -303,6 +335,8 @@ const projectData = {
         title: "PANGANET",
         subtitle: "Predictive Analytics Platform for Food Security & Supply Forecasting",
         tech: ["Machine Learning", "Time-Series Forecasting", "React", "Python", "FastAPI"],
+        github: "https://github.com/anantasr",
+        demo: "https://github.com/anantasr",
         description: "A data intelligence platform for regional commodity pricing and food distribution forecasting, using ARIMA/XGBoost models to assist local governance decision making.",
         highlights: [
             "15% improvement in commodity price volatility prediction accuracy.",
@@ -314,6 +348,8 @@ const projectData = {
         title: "AeroVision AI",
         subtitle: "UAV Aerial Computer Vision & Edge Agricultural Analytics",
         tech: ["YOLOv8", "Computer Vision", "Python", "OpenCV", "TensorRT", "Edge AI"],
+        github: "https://github.com/anantasr",
+        demo: "https://github.com/anantasr",
         description: "Aerial autonomous computer vision platform mounted on agricultural drones to perform high-resolution pest detection, canopy segmentation, and automated crop stress mapping.",
         highlights: [
             "Real-time object detection reaching 45 FPS on NVIDIA Jetson edge devices.",
@@ -325,6 +361,8 @@ const projectData = {
         title: "SmartGov Regional BI Portal",
         subtitle: "Municipal Socio-Economic Big Data Dashboard",
         tech: ["Power BI", "SQL Server", "Geospatial GIS", "DAX", "ETL Pipelines"],
+        github: "https://github.com/anantasr",
+        demo: "https://github.com/anantasr",
         description: "Centralized analytical command center unifying municipal socio-economic indicators, regional budget allocations, and poverty rate trajectories across 27 administrative sub-districts.",
         highlights: [
             "Consolidated over 15 disparate departmental data sources into a unified analytical warehouse.",
@@ -336,6 +374,8 @@ const projectData = {
         title: "NeuroPulse EEG AI Analyzer",
         subtitle: "Deep Neural Network for Electroencephalogram Waveform Diagnosis",
         tech: ["Deep Learning", "Signal Processing", "PyTorch", "MNE-Python", "Transformers"],
+        github: "https://github.com/anantasr",
+        demo: "https://github.com/anantasr",
         description: "Biomedical neural network architecture combining spatial convolutional layers and temporal Transformers for automated feature extraction from multichannel brainwave signals.",
         highlights: [
             "94.8% classification sensitivity on seizure detection and sleep staging benchmarks.",
@@ -347,6 +387,8 @@ const projectData = {
         title: "OptiRoute AI Engine",
         subtitle: "Capacitated Vehicle Routing & Dynamic Dispatch AI",
         tech: ["Genetic Algorithms", "Python", "FastAPI", "PostGIS", "OR-Tools"],
+        github: "https://github.com/anantasr",
+        demo: "https://github.com/anantasr",
         description: "Intelligent combinatorial optimization engine solving dynamic multi-vehicle routing problems with time-window constraints, load balancing, and traffic-aware dispatching.",
         highlights: [
             "Reduced fleet fuel expenditure and mileage travel time by 18.5%.",
@@ -363,18 +405,45 @@ function openModal(projectId) {
     if (!content) return;
 
     content.innerHTML = `
-        <span class="font-label-sm text-accent tracking-widest uppercase text-xs font-bold">Case Study</span>
-        <h3 class="font-serif text-3xl font-bold text-on-surface mt-2 mb-2">${data.title}</h3>
-        <p class="font-label-sm text-secondary text-sm font-medium mb-6">${data.subtitle}</p>
-        <div class="flex flex-wrap gap-2 mb-6">
-            ${data.tech.map(t => `<span class="bg-inverse-surface text-white px-3 py-1 rounded text-xs font-semibold uppercase tracking-wider">${t}</span>`).join('')}
+        <div class="flex items-center justify-between mb-2">
+            <span class="font-label-sm text-accent tracking-[0.25em] uppercase text-xs font-bold flex items-center gap-2">
+                <span class="w-2 h-2 rounded-full bg-accent animate-pulse"></span> Case Study Brief
+            </span>
         </div>
-        <div class="space-y-4 text-secondary leading-relaxed border-t border-outline-variant/50 pt-6">
-            <p class="text-on-surface font-medium">${data.description}</p>
-            <h4 class="font-label-sm uppercase tracking-widest text-xs text-on-surface font-bold pt-2">Key Outcomes & Features</h4>
-            <ul class="space-y-2 list-none">
-                ${data.highlights.map(h => `<li class="flex gap-3 text-sm"><span class="text-accent font-bold">—</span> ${h}</li>`).join('')}
-            </ul>
+        <h3 class="font-serif text-3xl md:text-4xl font-bold text-on-surface mb-2 leading-tight">${data.title}</h3>
+        <p class="font-label-sm text-secondary text-sm font-medium mb-5">${data.subtitle}</p>
+        
+        <div class="flex flex-wrap gap-2 mb-6">
+            ${data.tech.map(t => `<span class="bg-surface-container-high/80 text-on-surface px-3 py-1 rounded-md text-xs font-mono font-medium border border-outline-variant/60 uppercase tracking-wider">${t}</span>`).join('')}
+        </div>
+
+        <div class="space-y-4 text-secondary leading-relaxed text-sm md:text-base border-t border-outline-variant/40 pt-5">
+            <p class="text-on-surface/90 font-normal leading-relaxed">${data.description}</p>
+            <div class="pt-2">
+                <h4 class="font-label-sm uppercase tracking-widest text-xs text-on-surface font-bold mb-3 flex items-center gap-2">
+                    <span class="material-symbols-outlined text-base text-accent">stars</span>
+                    <span>Key Outcomes & Impact</span>
+                </h4>
+                <ul class="space-y-2.5 list-none">
+                    ${data.highlights.map(h => `<li class="flex gap-3 text-sm text-secondary"><span class="text-accent font-bold mt-0.5 flex-shrink-0">—</span> <span>${h}</span></li>`).join('')}
+                </ul>
+            </div>
+        </div>
+
+        <div class="mt-8 pt-6 border-t border-outline-variant/40 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4">
+            <span class="text-xs font-mono uppercase tracking-widest text-secondary/60 flex items-center gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> Live Resources
+            </span>
+            <div class="flex items-center gap-3">
+                <a href="${data.github}" target="_blank" class="inline-flex items-center justify-center gap-2 bg-[#111111] text-white hover:bg-accent px-5 py-2.5 rounded-xl font-label-sm text-xs font-bold uppercase tracking-wider transition-all duration-300 shadow-sm hover:shadow">
+                    <span class="material-symbols-outlined text-base">code</span>
+                    <span>GitHub Repository</span>
+                </a>
+                <a href="${data.demo}" target="_blank" class="inline-flex items-center justify-center gap-2 border border-outline-variant bg-surface-container-low text-on-surface hover:border-accent hover:text-accent px-5 py-2.5 rounded-xl font-label-sm text-xs font-bold uppercase tracking-wider transition-all duration-300 shadow-sm hover:shadow">
+                    <span class="material-symbols-outlined text-base">open_in_new</span>
+                    <span>Live Demo</span>
+                </a>
+            </div>
         </div>
     `;
     const modal = document.getElementById('caseStudyModal');
