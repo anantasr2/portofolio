@@ -4,7 +4,6 @@
    TECHNICAL ELEGANCE - PORTFOLIO DESIGN SYSTEM & SCROLLING CONTROLLERS
    ========================================================================== */
 
-/* Base setup: Ensure no parent kills position: sticky */
 html {
     scroll-behavior: smooth;
 }
@@ -201,7 +200,7 @@ body {
     perspective: 1400px;
 }
 
-/* Four-sided Framed Container (Matches Reference Image Card Style) */
+/* Four-sided Framed Container */
 .project-slide-border {
     width: 100%;
     height: 100%;
@@ -255,8 +254,7 @@ body {
     position: relative;
 }
 
-
-/* Subtle Page-Turn / Book-Opening Animation */
+/* Page-Turn Animation */
 @keyframes pageTurnNext {
     0% {
         transform: rotateY(-14deg) scale(0.96);
@@ -289,7 +287,7 @@ body {
     transform-origin: right center;
 }
 
-/* Decorative Offset Border Frame for Project Images */
+/* Project Images */
 .project-img-frame-wrapper {
     position: relative;
     width: 100%;
@@ -323,35 +321,7 @@ body {
     display: none;
 }
 
-/* Responsive typography */
-@media (max-width: 768px) {
-    .font-display-responsive {
-        font-size: 46px !important;
-        line-height: 1.1 !important;
-    }
-    .experience-card-item {
-        padding: 1rem !important;
-    }
-    .experience-frame-box {
-        height: calc(100vh - 2rem) !important;
-        border-radius: 1rem !important;
-    }
-    .project-slide-frame {
-        padding: 0.5rem !important;
-    }
-    .project-slide-border {
-        border-radius: 0.75rem !important;
-    }
-    .slide-content-body {
-        flex-direction: column !important;
-        padding: 1rem !important;
-        overflow-y: auto !important;
-    }
-}
-
-/* ==========================================================================
-   5. FLOATING BOTTOM DOCK NAVBAR
-   ========================================================================== */
+/* 5. FLOATING BOTTOM DOCK NAVBAR */
 .dock-tooltip {
     position: absolute;
     bottom: 100%;
@@ -392,6 +362,109 @@ body {
     height: 4px;
     border-radius: 50%;
     background-color: #0ea5e9;
+}
+
+/* ==========================================================================
+   6. RESPONSIVE BREAKPOINTS (MOBILE & TABLET OPTIMIZATIONS)
+   ========================================================================== */
+
+/* Mobile Phones (up to 768px) */
+@media (max-width: 768px) {
+    .font-display-responsive {
+        font-size: 34px !important;
+        line-height: 1.15 !important;
+    }
+    
+    /* Work Experience Mobile Layout */
+    .experience-card-item {
+        padding: 0.35rem 0.35rem 4.5rem 0.35rem !important; /* Clearance for bottom dock */
+    }
+    .experience-frame-box {
+        height: auto !important;
+        max-height: calc(100vh - 120px) !important;
+        border-radius: 1rem !important;
+        overflow-y: auto !important;
+    }
+    .experience-frame-header {
+        padding: 0.5rem 0.75rem !important;
+    }
+
+    /* Selected Projects Mobile Layout */
+    .project-slide-frame {
+        padding: 0.5rem 0.5rem 4.25rem 0.5rem !important; /* Clearance for floating bottom dock */
+        height: 100vh !important;
+        min-height: 100vh !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        box-sizing: border-box !important;
+    }
+    .project-slide-border {
+        width: 100% !important;
+        height: auto !important;
+        max-height: calc(100vh - 5rem) !important;
+        border-radius: 1.25rem !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: space-between !important;
+        box-shadow: 0 15px 40px -10px rgba(0, 0, 0, 0.08) !important;
+        overflow: hidden !important;
+    }
+    .slide-frame-header {
+        padding: 0.65rem 1rem !important;
+        flex-shrink: 0 !important;
+    }
+    .slide-frame-footer {
+        padding: 0.65rem 1rem !important;
+        flex-shrink: 0 !important;
+    }
+    .slide-content-body {
+        flex: 0 1 auto !important;
+        flex-direction: column !important;
+        justify-content: flex-start !important;
+        align-items: center !important;
+        padding: 0.75rem 1rem 1.25rem 1rem !important;
+        overflow-y: auto !important;
+        gap: 0.5rem !important;
+    }
+    .project-img-frame-wrapper {
+        width: 100% !important;
+        height: 180px !important;
+        min-height: 150px !important;
+        max-height: 200px !important;
+        flex-shrink: 0 !important;
+        padding: 0 !important;
+        margin-bottom: 0.75rem !important;
+    }
+    .project-img-frame {
+        width: 100% !important;
+        height: 100% !important;
+        border-radius: 0.75rem !important;
+    }
+    .project-img-frame-inner {
+        width: 100% !important;
+        height: 100% !important;
+        border-radius: 0.75rem !important;
+    }
+
+    /* Bottom Dock Mobile Adjustments */
+    #bottom-dock {
+        bottom: 0.5rem !important;
+    }
+    .dock-tooltip {
+        display: none !important; /* Avoid clipping on narrow phone screens */
+    }
+}
+
+/* Small Phones (up to 480px) */
+@media (max-width: 480px) {
+    .dock-item {
+        width: 2.2rem !important; /* ~35px */
+        height: 2.2rem !important;
+    }
+    .dock-item .material-symbols-outlined {
+        font-size: 1.05rem !important;
+    }
 }
 
 
