@@ -10,55 +10,49 @@
  */
 
 document.addEventListener('DOMContentLoaded', () => {
-    initRoleTypewriter();
+    initModernRoleMorph();
     initExperienceHorizontalScroll();
     initProjectsFastSnap();
     initBottomDockNavigation();
 });
 
 /* ==========================================================================
-   1. DYNAMIC ROLE TYPEWRITER ANIMATION
+   1. MODERN DYNAMIC ROLE MORPH ANIMATION (SLIDE-FADE FLIP)
    ========================================================================== */
-function initRoleTypewriter() {
+function initModernRoleMorph() {
     const roles = [
         "Machine Learning Engineer",
         "Data Engineer",
         "Data Analyst",
-        "Business Intelligence",
-        "Business Research"
+        "Business Intelligence Specialist",
+        "Business Research Analyst"
     ];
     let roleIndex = 0;
-    let charIndex = 0;
-    let isDeleting = false;
-    const typingElement = document.getElementById("dynamic-role-text");
+    const roleElem = document.getElementById("dynamic-role-text");
+    if (!roleElem) return;
 
-    if (!typingElement) return;
+    roleElem.style.transition = "transform 0.38s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.38s ease, filter 0.38s ease";
+    roleElem.style.display = "inline-block";
 
-    function typeRole() {
-        const currentRole = roles[roleIndex];
-        if (isDeleting) {
-            typingElement.textContent = currentRole.substring(0, charIndex - 1);
-            charIndex--;
-        } else {
-            typingElement.textContent = currentRole.substring(0, charIndex + 1);
-            charIndex++;
-        }
+    function morphToNextRole() {
+        roleElem.style.opacity = "0";
+        roleElem.style.transform = "translateY(-12px)";
+        roleElem.style.filter = "blur(6px)";
 
-        let typeSpeed = isDeleting ? 40 : 80;
-
-        if (!isDeleting && charIndex === currentRole.length) {
-            typeSpeed = 1800; // Pause when word is completely typed
-            isDeleting = true;
-        } else if (isDeleting && charIndex === 0) {
-            isDeleting = false;
+        setTimeout(() => {
             roleIndex = (roleIndex + 1) % roles.length;
-            typeSpeed = 350; // Pause before starting next word
-        }
+            roleElem.textContent = roles[roleIndex];
+            roleElem.style.transform = "translateY(12px)";
 
-        setTimeout(typeRole, typeSpeed);
+            setTimeout(() => {
+                roleElem.style.opacity = "1";
+                roleElem.style.transform = "translateY(0)";
+                roleElem.style.filter = "blur(0px)";
+            }, 50);
+        }, 380);
     }
 
-    setTimeout(typeRole, 500);
+    setInterval(morphToNextRole, 2600);
 }
 
 /* ==========================================================================
@@ -180,12 +174,12 @@ function initProjectsFastSnap() {
         isSnapping = true;
         clearTimeout(snapTimeout);
 
-        // Trigger subtle page-turn animation on the target slide border box
-        const slideBorder = projectCards[idx].querySelector('.project-slide-border');
-        if (slideBorder) {
-            slideBorder.classList.remove('animate-page-turn-next', 'animate-page-turn-prev');
-            void slideBorder.offsetWidth; // Force reflow
-            slideBorder.classList.add(direction === 'next' ? 'animate-page-turn-next' : 'animate-page-turn-prev');
+        // Stationary Outer Card: Apply smooth content-reveal transition on inner content body
+        const contentBody = projectCards[idx].querySelector('.slide-content-body');
+        if (contentBody) {
+            contentBody.classList.remove('animate-content-reveal-next', 'animate-content-reveal-prev');
+            void contentBody.offsetWidth; // Force reflow
+            contentBody.classList.add(direction === 'next' ? 'animate-content-reveal-next' : 'animate-content-reveal-prev');
         }
 
         projectCards[idx].scrollIntoView({ behavior: 'smooth', block: 'start' });
