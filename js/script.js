@@ -301,81 +301,88 @@ function toggleCertifications() {
    ========================================================================== */
 const projectData = {
     lightretina: {
-        title: "LightRetina-XAI / TilikMata",
+        title: "TilikMata",
         subtitle: "Explainable AI (XAI) Framework for Medical Diagnostic Imaging",
-        tech: ["Python", "PyTorch", "Grad-CAM", "XAI", "FastAPI", "React"],
-        github: "https://github.com/anantasr",
+        tech: ["Python", "PyTorch", "Grad-CAM", "XAI", "FastAPI", "ONNX"],
+        github: "https://github.com/anantasr2/TilikMata",
         demo: "https://github.com/anantasr",
-        description: "LightRetina-XAI provides transparent, interpretable deep learning models tailored for retinal fundus photography analysis. Built with Grad-CAM saliency mapping and decision confidence scoring to enable trusted AI-assisted clinical diagnosis.",
+        description: "TilikMata is a lightweight Explainable AI system for early diabetic retinopathy screening, combining RepViT, Grad-CAM, and clinical decision support to deliver severity prediction, visual explanations, risk assessment, and follow-up recommendations through a web-based platform.",
         highlights: [
-            "Achieved 96.4% diagnostic accuracy across multi-class retinal condition datasets.",
-            "Implemented real-time visual heatmaps for clinical decision explanation.",
-            "Designed low-latency inference pipeline optimized for edge deployments."
+            "Achieved 83.33% accuracy and 86.26% macro recall with RepViT, leading across four lightweight models.",
+            "Reduced model size by 94.4%, from 18.45 MB to 1.03 MB with FP16 quantization.",
+            "Accelerated inference by 44.5%, from 48.80 ms to 27.10 ms without performance loss.",
+            "Integrated Grad-CAM, risk assessment, and clinical decision support into a deployable web screening system."
         ]
     },
     jordan: {
-        title: "Jordan Citra Niaga",
-        subtitle: "Enterprise Data Integration & Inventory Analytics System",
-        tech: ["SQL", "ETL", "Python", "Dashboard", "PostgreSQL", "Tailwind CSS"],
+        title: "ThermaX",
+        subtitle: "AI-Powered Thermal Stability Prediction for Zn-MOF",
+        tech: ["PYTHON", "SCIKIT-LEARN", "MLP", "QSPR", "SHAP", "MATERIALS INFORMATICS"],
         github: "https://github.com/anantasr",
         demo: "https://github.com/anantasr",
-        description: "An end-to-end data pipeline and intelligence portal consolidating multi-branch supply chain records, inventory movements, and automated daily reconciliations.",
+        description: "ThermaX applies a Multilayer Perceptron (MLP) within a QSPR framework to predict the thermal stability of Zn-MOF materials from four structural descriptors: zinc content, nitrogen atoms, ligand fragments, and heteroatom interactions. The model compares different neural network configurations and uses SHAP analysis to identify the structural factors most influential to thermal stability, providing a computational approach to support faster and more efficient material design.",
         highlights: [
-            "Automated 100% daily transaction and inventory reconciliation.",
-            "Reduced manual reporting turnarounds from 4 hours to real-time dashboards.",
-            "Developed proactive threshold alerting for low-stock and dead-stock management."
+            "Achieved R² of 0.9991 with the optimal 9-neuron MLP model.",
+            "Reached 0.0020 MAE and 0.0022 RMSE, demonstrating highly accurate TS prediction.",
+            "Identified nN and Het as the most influential structural features using SHAP analysis.",
+            "Enabled faster computational screening of Zn-MOF thermal stability to support material design."
         ]
     },
     panganet: {
         title: "PANGANET",
-        subtitle: "Predictive Analytics Platform for Food Security & Supply Forecasting",
-        tech: ["Machine Learning", "Time-Series Forecasting", "React", "Python", "FastAPI"],
+        subtitle: "AI-Powered Food Security Decision Support",
+        tech: ["Machine Learning","SCIKIT-LEARN", "XGBOOST", "K-MEDOIDS", "DATA ANALYTICS"],
         github: "https://github.com/anantasr",
         demo: "https://github.com/anantasr",
-        description: "A data intelligence platform for regional commodity pricing and food distribution forecasting, using ARIMA/XGBoost models to assist local governance decision making.",
+        description: "PANGANET (Pangan Analytics Network) is a web-based platform that turns socioeconomic data from 514 Indonesian districts and cities into actionable food-security insights. By combining K-Medoids clustering and XGBoost prediction, it maps regional conditions, forecasts the Food Security Index, identifies key influencing factors, and provides data-driven recommendations to support smarter policy decisions.",
         highlights: [
-            "15% improvement in commodity price volatility prediction accuracy.",
-            "Interactive regional heatmap for supply deficit and surplus identification.",
-            "Adopted for analytical pilot studies in agricultural strategic planning."
+            "Mapped 514 Indonesian districts and cities into three food-security clusters using K-Medoids.",
+            "Achieved up to 97.73% R² on testing with XGBoost for regional IKP prediction.",
+            "Identified key socioeconomic factors influencing food security across different regional clusters.",
+            "Developed an interactive decision-support platform with prediction, regional analysis, and policy recommendations."
         ]
     },
     aerovision: {
-        title: "AeroVision AI",
-        subtitle: "UAV Aerial Computer Vision & Edge Agricultural Analytics",
-        tech: ["YOLOv8", "Computer Vision", "Python", "OpenCV", "TensorRT", "Edge AI"],
-        github: "https://github.com/anantasr",
+        title: "NeoBatik",
+        subtitle: "Real-Time AI for Indonesian Batik Motif Recognition",
+        tech: ["PYTHON", "TENSORFLOW", "MOBILENETV2", "CNN", "COMPUTER VISION"],
+        github: "https://github.com/anantasr2/batik-app",
         demo: "https://github.com/anantasr",
-        description: "Aerial autonomous computer vision platform mounted on agricultural drones to perform high-resolution pest detection, canopy segmentation, and automated crop stress mapping.",
+        description: "NeoBatik is a real-time computer vision system that recognizes Indonesian batik motifs from images and live camera feeds. Powered by MobileNetV2, the system combines lightweight deep learning with an interactive desktop application to deliver fast and practical motif recognition for cultural education and preservation.",
         highlights: [
-            "Real-time object detection reaching 45 FPS on NVIDIA Jetson edge devices.",
-            "Accurate early blight and disease identification across 50+ hectares of field crops.",
-            "Automated GPS-tagged geo-spatial health overlays for precision agriculture."
+            "Achieved 94% classification accuracy across four Indonesian batik motifs.",
+            "Maintained 89%+ accuracy in real-time testing, demonstrating robust performance under varying conditions.",
+            "Implemented real-time camera recognition with instant motif prediction and probability scores.",
+            "Built an interactive desktop application with image upload, live recognition, and model evaluation reports."
         ]
     },
     smartgov: {
-        title: "SmartGov Regional BI Portal",
-        subtitle: "Municipal Socio-Economic Big Data Dashboard",
-        tech: ["Power BI", "SQL Server", "Geospatial GIS", "DAX", "ETL Pipelines"],
-        github: "https://github.com/anantasr",
+        title: "DrowsySense",
+        subtitle: "Real-Time AI for Driver Drowsiness Detection",
+        tech: ["PYTHON", "YOLOv8", "ULTRALYTICS", "COMPUTER VISION", "STREAMLIT"],
+        github: "https://github.com/anantasr2/Driver-Drowsiness-Detection",
         demo: "https://github.com/anantasr",
-        description: "Centralized analytical command center unifying municipal socio-economic indicators, regional budget allocations, and poverty rate trajectories across 27 administrative sub-districts.",
+        description: "DrowsySense is a real-time computer vision application that uses YOLOv8 to detect and classify driver facial conditions into Normal, Yawning, and Microsleep. Deployed through Streamlit, the system processes camera frames in real time, displays detection results with bounding boxes and confidence scores, and triggers an audio warning when drowsiness or microsleep is detected.",
         highlights: [
-            "Consolidated over 15 disparate departmental data sources into a unified analytical warehouse.",
-            "Enabled drill-down geospatial demographic clustering for data-driven municipal budget planning.",
-            "Adopted by regional stakeholders for quarterly socio-economic policy briefings."
+            "Achieved 95.6% precision and 97.5% recall in drowsiness detection.",
+            "Reached 98.2% mAP50 across three drowsiness-related classes.",
+            "Achieved 1.07 ms average inference time, enabling real-time detection.",
+            "Integrated real-time detection with audio alerts through a Streamlit application."
         ]
     },
     neuropulse: {
-        title: "NeuroPulse EEG AI Analyzer",
-        subtitle: "Deep Neural Network for Electroencephalogram Waveform Diagnosis",
+        title: "Organicstation",
+        subtitle: "Organic E-Commerce & Product Discovery Platform",
         tech: ["Deep Learning", "Signal Processing", "PyTorch", "MNE-Python", "Transformers"],
         github: "https://github.com/anantasr",
         demo: "https://github.com/anantasr",
-        description: "Biomedical neural network architecture combining spatial convolutional layers and temporal Transformers for automated feature extraction from multichannel brainwave signals.",
+        description: "Organicstation is a web-based storefront that brings organic food, beverages, skincare, and herbal products into a single digital shopping experience. The platform features product discovery, pricing, product highlights, customer testimonials, purchasing actions, and direct contact support, creating a simple end-to-end experience for users exploring and purchasing natural products.",
         highlights: [
-            "94.8% classification sensitivity on seizure detection and sleep staging benchmarks.",
-            "Automated wave filtering and artifact removal utilizing Wavelet transforms.",
-            "Interactive doctor console for signal annotation and confidence metric reviews."
+            "Built a complete product catalog featuring organic food, beverages, skincare, and herbal products.",
+            "Implemented product discovery and purchasing flows through product listings and “Buy Now” actions.",
+            "Designed a customer-focused experience with testimonials, product highlights, and service information."
+
+
         ]
     },
     optiroute: {
