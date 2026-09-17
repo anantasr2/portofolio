@@ -305,7 +305,7 @@ const projectData = {
         subtitle: "Explainable AI (XAI) Framework for Medical Diagnostic Imaging",
         tech: ["Python", "PyTorch", "Grad-CAM", "XAI", "FastAPI", "ONNX"],
         github: "https://github.com/anantasr2/TilikMata",
-        demo: "https://github.com/anantasr",
+        demo: "https://tilik-mata.vercel.app",
         description: "TilikMata is a lightweight Explainable AI system for early diabetic retinopathy screening, combining RepViT, Grad-CAM, and clinical decision support to deliver severity prediction, visual explanations, risk assessment, and follow-up recommendations through a web-based platform.",
         highlights: [
             "Achieved 83.33% accuracy and 86.26% macro recall with RepViT, leading across four lightweight models.",
@@ -319,7 +319,7 @@ const projectData = {
         subtitle: "AI-Powered Thermal Stability Prediction for Zn-MOF",
         tech: ["PYTHON", "SCIKIT-LEARN", "MLP", "QSPR", "SHAP", "MATERIALS INFORMATICS"],
         github: "https://github.com/anantasr",
-        demo: "https://github.com/anantasr",
+        demo: "https://thermaxmof.vercel.app",
         description: "ThermaX applies a Multilayer Perceptron (MLP) within a QSPR framework to predict the thermal stability of Zn-MOF materials from four structural descriptors: zinc content, nitrogen atoms, ligand fragments, and heteroatom interactions. The model compares different neural network configurations and uses SHAP analysis to identify the structural factors most influential to thermal stability, providing a computational approach to support faster and more efficient material design.",
         highlights: [
             "Achieved R² of 0.9991 with the optimal 9-neuron MLP model.",
@@ -333,7 +333,7 @@ const projectData = {
         subtitle: "AI-Powered Food Security Decision Support",
         tech: ["Machine Learning","SCIKIT-LEARN", "XGBOOST", "K-MEDOIDS", "DATA ANALYTICS"],
         github: "https://github.com/anantasr",
-        demo: "https://github.com/anantasr",
+        demo: "https://panganet.up.railway.app",
         description: "PANGANET (Pangan Analytics Network) is a web-based platform that turns socioeconomic data from 514 Indonesian districts and cities into actionable food-security insights. By combining K-Medoids clustering and XGBoost prediction, it maps regional conditions, forecasts the Food Security Index, identifies key influencing factors, and provides data-driven recommendations to support smarter policy decisions.",
         highlights: [
             "Mapped 514 Indonesian districts and cities into three food-security clusters using K-Medoids.",
@@ -361,7 +361,7 @@ const projectData = {
         subtitle: "Real-Time AI for Driver Drowsiness Detection",
         tech: ["PYTHON", "YOLOv8", "ULTRALYTICS", "COMPUTER VISION", "STREAMLIT"],
         github: "https://github.com/anantasr2/Driver-Drowsiness-Detection",
-        demo: "https://github.com/anantasr",
+        // demo: "https://github.com/anantasr",
         description: "DrowsySense is a real-time computer vision application that uses YOLOv8 to detect and classify driver facial conditions into Normal, Yawning, and Microsleep. Deployed through Streamlit, the system processes camera frames in real time, displays detection results with bounding boxes and confidence scores, and triggers an audio warning when drowsiness or microsleep is detected.",
         highlights: [
             "Achieved 95.6% precision and 97.5% recall in drowsiness detection.",
@@ -375,7 +375,7 @@ const projectData = {
         subtitle: "Organic E-Commerce & Product Discovery Platform",
         tech: ["Deep Learning", "Signal Processing", "PyTorch", "MNE-Python", "Transformers"],
         github: "https://github.com/anantasr",
-        demo: "https://github.com/anantasr",
+        demo: "https://organicstation.vercel.app",
         description: "Organicstation is a web-based storefront that brings organic food, beverages, skincare, and herbal products into a single digital shopping experience. The platform features product discovery, pricing, product highlights, customer testimonials, purchasing actions, and direct contact support, creating a simple end-to-end experience for users exploring and purchasing natural products.",
         highlights: [
             "Built a complete product catalog featuring organic food, beverages, skincare, and herbal products.",
