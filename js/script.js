@@ -347,7 +347,7 @@ const projectData = {
         subtitle: "Real-Time AI for Indonesian Batik Motif Recognition",
         tech: ["PYTHON", "TENSORFLOW", "MOBILENETV2", "CNN", "COMPUTER VISION"],
         github: "https://github.com/anantasr2/batik-app",
-        demo: "https://github.com/anantasr",
+        // demo: "https://github.com/anantasr",
         description: "NeoBatik is a real-time computer vision system that recognizes Indonesian batik motifs from images and live camera feeds. Powered by MobileNetV2, the system combines lightweight deep learning with an interactive desktop application to deliver fast and practical motif recognition for cultural education and preservation.",
         highlights: [
             "Achieved 94% classification accuracy across four Indonesian batik motifs.",
@@ -436,16 +436,33 @@ function openModal(projectId) {
             <span class="text-xs font-mono uppercase tracking-widest text-secondary/60 flex items-center gap-2">
                 <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> Live Resources
             </span>
+        
             <div class="flex items-center gap-3">
-                <a href="${data.github}" target="_blank" class="inline-flex items-center justify-center gap-2 bg-[#111111] text-white hover:bg-accent px-5 py-2.5 rounded-xl font-label-sm text-xs font-bold uppercase tracking-wider transition-all duration-300 shadow-sm hover:shadow">
-                    <span class="material-symbols-outlined text-base">code</span>
-                    <span>GitHub Repository</span>
-                </a>
-                <a href="${data.demo}" target="_blank" class="inline-flex items-center justify-center gap-2 border border-outline-variant bg-surface-container-low text-on-surface hover:border-accent hover:text-accent px-5 py-2.5 rounded-xl font-label-sm text-xs font-bold uppercase tracking-wider transition-all duration-300 shadow-sm hover:shadow">
-                    <span class="material-symbols-outlined text-base">open_in_new</span>
-                    <span>Live Demo</span>
-                </a>
+                ${
+                    data.github
+                        ? `
+                            <a href="${data.github}" target="_blank" rel="noopener noreferrer"
+                                class="inline-flex items-center justify-center gap-2 bg-[#111111] text-white hover:bg-accent px-5 py-2.5 rounded-xl font-label-sm text-xs font-bold uppercase tracking-wider transition-all duration-300 shadow-sm hover:shadow">
+                                <span class="material-symbols-outlined text-base">code</span>
+                                <span>GitHub Repository</span>
+                            </a>
+                        `
+                        : ''
+                }
+
+                ${
+                    data.demo
+                        ? `
+                            <a href="${data.demo}" target="_blank" rel="noopener noreferrer"
+                                class="inline-flex items-center justify-center gap-2 border border-outline-variant bg-surface-container-low text-on-surface hover:border-accent hover:text-accent px-5 py-2.5 rounded-xl font-label-sm text-xs font-bold uppercase tracking-wider transition-all duration-300 shadow-sm hover:shadow">
+                                <span class="material-symbols-outlined text-base">open_in_new</span>
+                                <span>Live Demo</span>
+                            </a>
+                        `
+                        : ''
+                }
             </div>
+
         </div>
     `;
     const modal = document.getElementById('caseStudyModal');
