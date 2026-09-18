@@ -386,16 +386,17 @@ const projectData = {
         ]
     },
     optiroute: {
-        title: "OptiRoute AI Engine",
-        subtitle: "Capacitated Vehicle Routing & Dynamic Dispatch AI",
-        tech: ["Genetic Algorithms", "Python", "FastAPI", "PostGIS", "OR-Tools"],
-        github: "https://github.com/anantasr",
-        demo: "https://github.com/anantasr",
-        description: "Intelligent combinatorial optimization engine solving dynamic multi-vehicle routing problems with time-window constraints, load balancing, and traffic-aware dispatching.",
+        title: "Revive Indonesia",
+        subtitle: "Modern Digital Platform for Shoe & Bag Cleaning Services",
+        tech: ["LARAVEL", "PHP", "INERTIA.JS", "VITE", "WEB DEVELOPMENT"],
+        github: "https://github.com/anantasr2/RCR",
+        demo: "https://reviveindonesia.vercel.app",
+        description: "Revive Indonesia is a modern web platform designed for a shoe and bag cleaning and restoration service. The platform brings service information, treatment categories, gallery, branch locations, and order tracking into a single digital experience, helping customers discover services and connect with the business more conveniently.",
         highlights: [
-            "Reduced fleet fuel expenditure and mileage travel time by 18.5%.",
-            "Real-time route recalculation capability handling up to 500 delivery nodes in under 2 seconds.",
-            "REST API integration with third-party logistics dispatch systems."
+            "Built a complete service platform covering shoe, bag, leather & repair, and suitcase treatment categories.",
+            "Designed a customer-focused experience with service details, gallery, branch locations, and business information.",
+            "Implemented an order tracking interface to help customers monitor the progress of their restoration service.",
+            "Integrated direct WhatsApp contact and ordering actions to provide a seamless transition from service discovery to customer inquiry."
         ]
     }
 };
