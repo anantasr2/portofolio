@@ -329,17 +329,17 @@ const projectData = {
         ]
     },
     panganet: {
-        title: "PANGANET",
-        subtitle: "AI-Powered Food Security Decision Support",
+        title: "AGRISIGHT",
+        subtitle: "AI-Powered Food Security & Spatial Intelligence Platform",
         tech: ["Machine Learning","SCIKIT-LEARN", "XGBOOST", "K-MEDOIDS", "DATA ANALYTICS"],
         github: "https://github.com/anantasr2/NewAgrisight",
-        demo: "https://panganet.up.railway.app",
-        description: "PANGANET (Pangan Analytics Network) is a web-based platform that turns socioeconomic data from 514 Indonesian districts and cities into actionable food-security insights. By combining K-Medoids clustering and XGBoost prediction, it maps regional conditions, forecasts the Food Security Index, identifies key influencing factors, and provides data-driven recommendations to support smarter policy decisions.",
+        demo: "https://agrisightt.vercel.app",
+        description: "AGRISIGHT (Pangan Analytics Network) is an interactive WebGIS platform designed to analyze food security across 514 Indonesian districts and cities. By integrating K-Medoids clustering and XGBoost prediction, it maps regional food-security patterns, forecasts the Food Security Index (IKP), and identifies disparities through nine socioeconomic and health indicators. The platform also features regional comparisons, interactive maps, and scenario simulations to help users explore data-driven insights and evaluate potential development interventions.",
         highlights: [
             "Mapped 514 Indonesian districts and cities into three food-security clusters using K-Medoids.",
             "Achieved up to 97.73% R² on testing with XGBoost for regional IKP prediction.",
             "Identified key socioeconomic factors influencing food security across different regional clusters.",
-            "Developed an interactive decision-support platform with prediction, regional analysis, and policy recommendations."
+            "Developed an interactive WebGIS platform featuring spatial mapping, regional benchmarking, prediction, and intervention simulations"
         ]
     },
     aerovision: {
