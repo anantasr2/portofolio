@@ -318,7 +318,7 @@ const projectData = {
         title: "ThermaX",
         subtitle: "AI-Powered Thermal Stability Prediction for Zn-MOF",
         tech: ["PYTHON", "SCIKIT-LEARN", "MLP", "QSPR", "SHAP", "MATERIALS INFORMATICS"],
-        github: "https://github.com/anantasr",
+        github: "https://github.com/anantasr2/ThermaX",
         demo: "https://thermaxmof.vercel.app",
         description: "ThermaX applies a Multilayer Perceptron (MLP) within a QSPR framework to predict the thermal stability of Zn-MOF materials from four structural descriptors: zinc content, nitrogen atoms, ligand fragments, and heteroatom interactions. The model compares different neural network configurations and uses SHAP analysis to identify the structural factors most influential to thermal stability, providing a computational approach to support faster and more efficient material design.",
         highlights: [
@@ -332,7 +332,7 @@ const projectData = {
         title: "PANGANET",
         subtitle: "AI-Powered Food Security Decision Support",
         tech: ["Machine Learning","SCIKIT-LEARN", "XGBOOST", "K-MEDOIDS", "DATA ANALYTICS"],
-        github: "https://github.com/anantasr",
+        github: "https://github.com/anantasr2/NewAgrisight",
         demo: "https://panganet.up.railway.app",
         description: "PANGANET (Pangan Analytics Network) is a web-based platform that turns socioeconomic data from 514 Indonesian districts and cities into actionable food-security insights. By combining K-Medoids clustering and XGBoost prediction, it maps regional conditions, forecasts the Food Security Index, identifies key influencing factors, and provides data-driven recommendations to support smarter policy decisions.",
         highlights: [
